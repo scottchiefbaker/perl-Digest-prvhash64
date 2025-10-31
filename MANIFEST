@@ -9,3 +9,6 @@ prvhash64.xs
 prvhash_core.h
 t/01_basic.t
 t/02_hex.t
+LICENSE
+README
+README.md
