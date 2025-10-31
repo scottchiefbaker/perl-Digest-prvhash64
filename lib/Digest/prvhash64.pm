@@ -92,11 +92,6 @@ encode strings to a byte representation explicitly, for example:
     use Encode qw(encode);
     my $hex = prvhash64_hex( encode('UTF-8', $text) );
 
-=head1 EXAMPLES
-
-    # one-shot hex
-    print prvhash64_hex("hello world", 64), "\n";
-
 =head1 SEE ALSO
 
 Digest(3), Encode, Digest::MD5, Digest::SHA
