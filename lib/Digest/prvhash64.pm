@@ -4,8 +4,8 @@ use warnings;
 our $VERSION = '0.1.1';
 
 require Exporter;
-our @ISA       = qw(Exporter);
-our @EXPORT_OK = qw(prvhash64 prvhash64_64m prvhash64_hex prvhash64_64m_hex);
+our @ISA    = qw(Exporter);
+our @EXPORT = qw(prvhash64 prvhash64_64m prvhash64_hex prvhash64_64m_hex);
 
 require XSLoader;
 XSLoader::load('Digest::prvhash64', $VERSION);
