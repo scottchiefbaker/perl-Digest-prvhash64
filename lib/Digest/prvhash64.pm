@@ -1,7 +1,7 @@
 package Digest::prvhash64;
 use strict;
 use warnings;
-our $VERSION = '0.1.1';
+our $VERSION = '0.1.2';
 
 require Exporter;
 our @ISA       = qw(Exporter);
