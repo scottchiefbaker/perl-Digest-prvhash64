@@ -1,6 +1,8 @@
 package Digest::prvhash64;
 use strict;
 use warnings;
+use v5.10;
+
 our $VERSION = '0.1.3';
 
 require Exporter;
