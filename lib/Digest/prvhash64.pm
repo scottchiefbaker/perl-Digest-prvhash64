@@ -96,6 +96,6 @@ Digest(3), Encode, Digest::MD5, Digest::SHA
 
 =head1 AUTHOR
 
-scottchiefbaker
+Scott Baker - https://www.perturb.org/
 
 =cut
