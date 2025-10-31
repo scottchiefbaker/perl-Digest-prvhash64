@@ -3,7 +3,14 @@
 use strict;
 use warnings;
 use v5.16;
-use Digest::prvhash64 qw(prvhash64 prvhash64_64m prvhash64_hex prvhash64_64m_hex);
+use Digest::prvhash64;
+use Getopt::Long;
+
+my $seed = 0;
+
+GetOptions(
+	'seed=i' => \$seed,
+);
 
 ###############################################################################
 ###############################################################################
@@ -22,11 +29,13 @@ if (@ARGV) {
 
 my @sizes = qw(8 16 24 32 64);
 
+print color(123, "Using seed: $seed\n\n");
+
 foreach my $str (@strings) {
 	print color('228', "String: '$str'\n");
 	foreach my $size (@sizes) {
-		my $hex = prvhash64_hex($str, $size);
-		my $raw = prvhash64($str, $size);
+		my $hex = prvhash64_hex($str, $size, $seed);
+		my $raw = prvhash64($str, $size, $seed);
 
 		#k(unpack("H*", $raw));
 
