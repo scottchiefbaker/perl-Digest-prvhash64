@@ -39,13 +39,10 @@ ok($m2 != $m4, '64m different seeds differ');
 my $h_other = prvhash64("hello world!", 8);
 ok($h8 ne $h_other, 'different message yields different hash');
 
-# Test hex helper
-my $hx16_a = prvhash64_hex($msg, 16, 777);
-my $hx16_b = prvhash64_hex($msg, 16, 777);
-my $hx16_c = prvhash64_hex($msg, 16, 778);
-ok(defined $hx16_a && $hx16_a =~ /^[0-9a-f]+$/i, 'hex output format');
-is(length($hx16_a), 32, 'hex length is 2x hash_len');
-is($hx16_a, $hx16_b, 'hex deterministic with same seed');
-isnt($hx16_a, $hx16_c, 'hex changes with different seed');
+my $seed = 16129539322125092974;
+is(prvhash64_64m('123'  , $seed), 17529027730393874021);
+is(prvhash64_64m('456'  , $seed), 13622049536041103705);
+is(prvhash64_64m(''     , $seed), 3306698058279260960);
+is(prvhash64_64m('Hello', $seed), 11086547417568924555);
 
 done_testing();
