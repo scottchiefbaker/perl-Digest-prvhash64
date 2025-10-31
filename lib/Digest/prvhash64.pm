@@ -4,8 +4,8 @@ use warnings;
 our $VERSION = '0.1.1';
 
 require Exporter;
-our @ISA    = qw(Exporter);
-our @EXPORT = qw(prvhash64 prvhash64_64m prvhash64_hex prvhash64_64m_hex);
+our @ISA       = qw(Exporter);
+our @EXPORT_OK = qw(prvhash64 prvhash64_64m prvhash64_hex prvhash64_64m_hex);
 
 require XSLoader;
 XSLoader::load('Digest::prvhash64', $VERSION);
@@ -45,24 +45,22 @@ Digest::prvhash64 - Variable length hashing
 
     use Digest::prvhash64;
 
-    # Raw number/bytes
-    my $raw  = prvhash64($str, $hash_bytes);
-    my $num  = prvhash64_64m($str);
+    my $raw  = prvhash64($str, $hash_bytes);     # Raw bytes
+    my $hex  = prvhash64_hex($str, $hash_bytes); # Hex string
 
-    # Hex string
-    my $hex  = prvhash64_hex($str, $hash_bytes);
-    my $hex2 = prvhash64_64m_hex($str);
+    # 64bit "minimal" variant
+    my $num  = prvhash64_64m($str);     # 64bit unsigned integer
+    my $hex2 = prvhash64_64m_hex($str); # 64bit hex string
 
 =head1 DESCRIPTION
 
-Digest::prvhash64 is a variable length hashing algorithm. It is NOT suitable for
+Digest::prvhash64 is a I<variable length> hashing algorithm. It is NOT suitable for
 cryptographic purposes (password storage, signatures, etc.).
 
-=head1 FUNCTIONS
+=head1 METHODS
 
 All functions accept data as a byte string. For deterministic results, callers
-should ensure text is encoded to bytes (for example using Encode::encode('UTF-8', $text))
-before calling these functions.
+should ensure text is encoded to bytes.
 
 =head2 B<prvhash64($str, $hash_size, $seed = 0)>
 

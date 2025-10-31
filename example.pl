@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use v5.16;
-use Digest::prvhash64;
+use Digest::prvhash64 qw(prvhash64_hex prvhash64);
 use Getopt::Long;
 
 my $seed = 0;
