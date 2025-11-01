@@ -17,7 +17,7 @@ WriteMakefile(
     PREREQ_PM          => {},
     META_MERGE => {
         resources => {
-            repository => 'https://github.com/your/repo',
+            repository => 'https://github.com/scottchiefbaker/perl-Digest-prvhash64',
         },
     },
 );
